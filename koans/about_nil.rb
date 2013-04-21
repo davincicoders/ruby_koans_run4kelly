@@ -13,6 +13,7 @@ class AboutNil < Neo::Koan
       nil.some_method_nil_doesnt_know_about
     rescue Exception => ex
       # What exception has been caught?
+      #google nomethod error, returns NoMethodError: undefined method 
       assert_equal NoMethodError, ex.class
 
       # What message was attached to the exception?
