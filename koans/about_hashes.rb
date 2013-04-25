@@ -23,13 +23,14 @@ class AboutHashes < Neo::Koan
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
     assert_equal "uno", hash.fetch(:one)
-    assert_raise(KeyError) do
+    assert_raise(KeyError) do  
       hash.fetch(:doesnt_exist)
     end
 
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    # = because we can bring a block to being executend when the key is not found
   end
 
   def test_changing_hashes
@@ -41,6 +42,7 @@ class AboutHashes < Neo::Koan
 
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
+    # = to make the test more clear and readable
   end
 
   def test_hash_is_unordered
@@ -60,10 +62,10 @@ class AboutHashes < Neo::Koan
 
   def test_hash_values
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash.values.size
-    assert_equal __, hash.values.include?("uno")
-    assert_equal __, hash.values.include?("dos")
-    assert_equal __, hash.values.class
+    assert_equal 2, hash.values.size
+    assert_equal true, hash.values.include?("uno")
+    assert_equal true, hash.values.include?("dos")
+    assert_equal Array, hash.values.class
   end
 
   def test_combining_hashes
