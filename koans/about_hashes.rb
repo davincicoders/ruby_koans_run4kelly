@@ -10,14 +10,14 @@ class AboutHashes < Neo::Koan
 
   def test_hash_literals
     hash = { :one => "uno", :two => "dos" }
-    assert_equal 2, hash.size
+    assert_equal 2, hash.size  # 1-based count of items in hash
   end
 
   def test_accessing_hashes
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
-    assert_equal __, hash[:doesnt_exist]
+    assert_equal "uno",hash[:one]
+    assert_equal "dos", hash[:two]
+    assert_equal nil, hash[:doesnt_exist]
   end
 
   def test_accessing_hashes_with_fetch
