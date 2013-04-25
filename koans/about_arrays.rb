@@ -31,17 +31,19 @@ class AboutArrays < Neo::Koan
     assert_equal :jelly,  array[-1] # count 1 from the right
     assert_equal :butter, array[-3] # count 3 from the right
   end
-
+ 
   def test_slicing_arrays
     array = [:peanut, :butter, :and, :jelly]
 
-    assert_equal __, array[0,1]
-    assert_equal __, array[0,2]
-    assert_equal __, array[2,2]
-    assert_equal __, array[2,20]
-    assert_equal __, array[4,0]
-    assert_equal __, array[4,100]
-    assert_equal __, array[5,0]
+    assert_equal [:peanut],          array[0,1]   # start at index 0, go 1
+    assert_equal [:peanut, :butter], array[0,2]   # start at index 0, go 2
+    assert_equal [:and, :jelly],     array[2,2]   # start at index 2, go 2
+    assert_equal [:and, :jelly],     array[2,20]  # start at index 2, goto the end
+    assert_equal [],                 array[4,0]   # start at index 4, go none?
+    assert_equal nil,                array[4]     # past the last index
+    assert_equal [],                 array[4,100] # start at index 4, goto the end
+
+    assert_equal nil,                array[5,0]   # TODO: still wrapping my head around this one.
   end
 
   def test_arrays_and_ranges
