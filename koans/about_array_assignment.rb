@@ -35,9 +35,10 @@ class AboutArrayAssignment < Neo::Koan
 
   def test_parallel_assignments_with_too_few_variables
     first_name, last_name = ["Cher"]
-    assert_equal __, first_name
-    assert_equal __, last_name
+    assert_equal "Cher", first_name    # first_name is set to the first item in array
+    assert_equal nil, last_name        # last_name is nil because there was only 1 item in the array and last_name is the second variable being assigned so there are no items left in the array to select
   end
+  
 
   def test_parallel_assignments_with_subarrays
     first_name, last_name = [["Willie", "Rae"], "Johnson"]
