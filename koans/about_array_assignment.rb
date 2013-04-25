@@ -14,8 +14,8 @@ class AboutArrayAssignment < Neo::Koan
 
   def test_parallel_assignments_with_extra_values
     first_name, last_name = ["John", "Smith", "III"]
-    assert_equal __, first_name
-    assert_equal __, last_name
+    assert_equal "John", first_name # first_name is set to the first item in array
+    assert_equal "Smith", last_name # last_name is set to the second item in array
   end
 
   def test_parallel_assignments_with_splat_operator
