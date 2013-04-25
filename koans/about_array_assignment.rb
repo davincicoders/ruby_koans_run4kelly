@@ -18,10 +18,19 @@ class AboutArrayAssignment < Neo::Koan
     assert_equal "Smith", last_name # last_name is set to the second item in array
   end
 
+  # NOTE:  The splat operator groups assignments that are greater in number
+  # to the variables into an array containing all values greater in number.
+  #
+  # It allows you to switch between parameters and arrays:
+  # it splits a list in a series of parameters,
+  # or collects a series of parameters to fill an array.
+  #
+  # and it can be used to convert a hash into an array.
+
   def test_parallel_assignments_with_splat_operator
     first_name, *last_name = ["John", "Smith", "III"]
-    assert_equal __, first_name
-    assert_equal __, last_name
+    assert_equal "John", first_name # first_name is set to the first item in array
+    assert_equal ["Smith", "III"], last_name   # last_name is set to the second and third item in the array
   end
 
   def test_parallel_assignments_with_too_few_variables
