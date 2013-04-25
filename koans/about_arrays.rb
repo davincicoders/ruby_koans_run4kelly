@@ -18,7 +18,7 @@ class AboutArrays < Neo::Koan
     assert_equal [1, (2)], array
 
     array << 333
-    assert_equal ([1, 2, 333]), array
+    assert_equal ([1, 2, 333]), array  #need square brackets for test to pass....
   end
 
   def test_accessing_array_elements
