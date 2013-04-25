@@ -76,11 +76,11 @@ class AboutArrays < Neo::Koan
     array = [1,2]
     array.unshift(:first)
 
-    assert_equal __, array
+    assert_equal [:first, 1, 2], array  # prepend :first symbol to beginning of array
 
     shifted_value = array.shift
-    assert_equal __, shifted_value
-    assert_equal __, array
-  end
+    assert_equal :first, shifted_value  # remove and return first item in array
+    assert_equal [1, 2], array          # remaining, mutated array
+  end 
 
 end
